@@ -1,0 +1,8 @@
+{
+  "agent1_completed": false,
+  "agent2_completed": false,
+  "agent3_completed": false,
+  "agent4_completed": false,
+  "agent5_completed": false,
+  "last_processed_file": null
+}

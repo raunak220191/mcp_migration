@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "name": "java-migration-mcp",
+  "description": "MCP backend for multi-agent Java uplift, microservice conversion, and cloud transformation",
+  "tools": {
+    "list_files": {
+      "type": "fileSystem.listFiles",
+      "root": "./"
+    },
+    "read_file": {
+      "type": "fileSystem.readFile",
+      "root": "./"
+    },
+    "write_file": {
+      "type": "fileSystem.writeFile",
+      "root": "./"
+    },
+    "create_file": {
+      "type": "fileSystem.writeFile",
+      "root": "./"
+    },
+    "delete_file": {
+      "type": "fileSystem.deleteFile",
+      "root": "./"
+    },
+    "rename_file": {
+      "type": "fileSystem.moveFile",
+      "root": "./"
+    },
+    "search": {
+      "type": "fileSystem.search",
+      "root": "./"
+    },
+    "stat": {
+      "type": "fileSystem.stat",
+      "root": "./"
+    }
+  },
+  "permissions": {
+    "read": [
+      "legacy_repo/**/*",
+      "migrated_code/**/*",
+      "agent_prompts/**/*"
+    ],
+    "write": [
+      "migrated_code/**/*",
+      "migration_state.json",
+      "agent_docs/**/*"
+    ],
+    "delete": [
+      "migrated_code/**/*"
+    ]
+  }
+}
