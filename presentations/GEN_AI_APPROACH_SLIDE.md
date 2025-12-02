@@ -58,20 +58,20 @@ The Model Context Protocol (MCP) provides a structured framework that enables Ge
 **Content and Tabular Detection Pipeline:**
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    MCP Migration Pipeline                        │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐  │
-│  │ Agent 1  │ →  │ Agent 2  │ →  │ Agent 3  │ →  │ Agent 4  │  │
-│  │ Analysis │    │ Java 17  │    │ Spring   │    │ Validate │  │
-│  │          │    │ Uplift   │    │ Boot 3.x │    │          │  │
-│  └──────────┘    └──────────┘    └──────────┘    └──────────┘  │
-│       ↓               ↓               ↓               ↓         │
-│  [Content     ]  [Code       ]  [Tabular   ]  [Integrity ]     │
-│  [Detection   ]  [Transform  ]  [Mapping   ]  [Checks    ]     │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────┐
+│                           MCP Migration Pipeline                                │
+├────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                 │
+│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐     │
+│  │ Agent 1  │ → │ Agent 2  │ → │ Agent 3  │ → │ Agent 4  │ → │ Agent 5  │     │
+│  │ Analysis │   │ Java 17  │   │ Spring   │   │ Validate │   │ Cloud    │     │
+│  │          │   │ Uplift   │   │ Boot 3.x │   │          │   │ Ready    │     │
+│  └──────────┘   └──────────┘   └──────────┘   └──────────┘   └──────────┘     │
+│       ↓              ↓              ↓              ↓              ↓            │
+│  [Content    ]  [Code      ]  [Tabular  ]  [Integrity]  [Deploy   ]           │
+│  [Detection  ]  [Transform ]  [Mapping  ]  [Checks   ]  [Configs  ]           │
+│                                                                                 │
+└────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **Tool Capabilities via MCP:**
