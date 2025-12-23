@@ -584,13 +584,23 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+// ONLY include --enable-preview if using preview features (e.g., pattern matching for switch)
+// Remove or comment out if not using preview features
 compileJava {
     options.compilerArgs += [
-        '--enable-preview', // If using preview features
+        // '--enable-preview', // UNCOMMENT ONLY if using preview features like pattern matching for switch (JEP 406)
         '-Xlint:unchecked',
         '-Xlint:deprecation'
     ]
 }
+
+// If using preview features, also add to test and run tasks:
+// tasks.withType(JavaExec) {
+//     jvmArgs += ['--enable-preview']
+// }
+// tasks.named('test') {
+//     jvmArgs += ['--enable-preview']
+// }
 ```
 
 #### build.gradle.kts (Kotlin DSL)
@@ -623,13 +633,23 @@ tasks.test {
     useJUnitPlatform()
 }
 
+// ONLY include --enable-preview if using preview features (e.g., pattern matching for switch)
+// Remove or comment out if not using preview features
 tasks.withType<JavaCompile> {
     options.compilerArgs.addAll(listOf(
-        "--enable-preview", // If using preview features
+        // "--enable-preview", // UNCOMMENT ONLY if using preview features like pattern matching for switch (JEP 406)
         "-Xlint:unchecked",
         "-Xlint:deprecation"
     ))
 }
+
+// If using preview features, also add to test and run tasks:
+// tasks.withType<JavaExec> {
+//     jvmArgs("--enable-preview")
+// }
+// tasks.test {
+//     jvmArgs("--enable-preview")
+// }
 ```
 
 #### settings.gradle
@@ -843,7 +863,7 @@ cd migrated_code/lifting_java17
 
 Java Enhancement Proposals (JEPs) implemented:
 - JEP 409: Sealed Classes (Java 17) - **FINALIZED**
-- JEP 406: Pattern Matching for switch (Java 17) - **PREVIEW** (finalized in Java 21)
+- JEP 406: Pattern Matching for switch (Third Preview in Java 17) - **PREVIEW** (finalized in Java 21)
 - JEP 395: Records (Java 16) - **FINALIZED**
 - JEP 394: Pattern Matching for instanceof (Java 16) - **FINALIZED**
 - JEP 378: Text Blocks (Java 15) - **FINALIZED**
