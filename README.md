@@ -9,7 +9,7 @@ This framework uses a coordinated multi-agent approach where each agent has a sp
 | Agent | Role | Description |
 |-------|------|-------------|
 | **Agent 1** | Repository Analyzer | Analyzes legacy codebase and creates a comprehensive migration plan |
-| **Agent 2** | Java 17 Uplift Engine | Transforms Java 8 code to Java 17 syntax and APIs |
+| **Agent 2** | Java 17 Uplift Engine | Transforms Java 8 code to Java 17 syntax and APIs with comprehensive modernization (collections, try-with-resources, records, sealed classes, pattern matching, deprecated API replacements, Gradle migration) |
 | **Agent 3** | Microservice Converter | Converts to Spring Boot 3.x microservice architecture |
 | **Agent 4** | Consistency Validator | Validates structural correctness and completeness |
 | **Agent 5** | Cloud Readiness Builder | Prepares for cloud deployment with Docker and Kubernetes configs |
@@ -42,8 +42,12 @@ mcp_migration/
    - Outputs analysis to `migrated_code/docs/ANALYSIS_REPORT.md`
 
 2. **Java 17 Uplift Phase (Agent 2)**
-   - Transforms code from Java 8 to Java 17
-   - Applies modern Java features (lambdas, streams, records, var keyword)
+   - Transforms code from Java 8 to Java 17 with comprehensive modernization
+   - Applies modern Java features: lambdas, streams, records, sealed classes, pattern matching, switch expressions, text blocks, var keyword
+   - Replaces deprecated APIs: Date/Calendar → java.time, HttpURLConnection → HttpClient, File I/O → Files API
+   - Modernizes collections: Vector → ArrayList, Hashtable → ConcurrentHashMap, immutable collections
+   - Implements try-with-resources for all AutoCloseable resources
+   - Migrates build system to Gradle (NOT Maven) with Java 17 toolchain
    - Outputs to `migrated_code/lifting_java17/`
 
 3. **Microservice Conversion Phase (Agent 3)**
