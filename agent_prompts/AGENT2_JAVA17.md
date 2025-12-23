@@ -206,7 +206,7 @@ public non-sealed class Triangle implements Shape {
 
 ### 6️⃣ PATTERN MATCHING
 
-#### Pattern Matching for instanceof (Java 16+)
+#### Pattern Matching for instanceof (Java 16+ - FINALIZED)
 ```java
 // BEFORE
 if (obj instanceof String) {
@@ -214,7 +214,7 @@ if (obj instanceof String) {
     System.out.println(str.length());
 }
 
-// AFTER
+// AFTER (Java 16+ - Safe to use, finalized in JEP 394)
 if (obj instanceof String str) {
     System.out.println(str.length());
 }
@@ -225,7 +225,10 @@ if (obj instanceof String str && str.length() > 5) {
 }
 ```
 
-#### Pattern Matching for switch (Java 17 Preview, Java 21 Final)
+#### Pattern Matching for switch (Java 17 PREVIEW - Use with caution)
+⚠️ **NOTE:** This is a PREVIEW feature in Java 17. Requires `--enable-preview` flag (included in Gradle configuration below).
+Only use if preview features are acceptable in your environment.
+
 ```java
 // BEFORE
 String formatted;
@@ -239,7 +242,7 @@ if (obj instanceof Integer) {
     formatted = obj.toString();
 }
 
-// AFTER (Java 17+ with preview features)
+// AFTER (Java 17+ with preview features enabled)
 String formatted = switch (obj) {
     case Integer i -> String.format("int %d", i);
     case Long l -> String.format("long %d", l);
@@ -829,7 +832,8 @@ cd migrated_code/lifting_java17
 
 - **Records**: Only for simple DTOs without logic
 - **Sealed Classes**: Only when inheritance is truly restricted
-- **Pattern Matching**: Preview feature in Java 17 - document usage
+- **Pattern Matching for instanceof (JEP 394)**: FINALIZED in Java 16 - Safe to use
+- **Pattern Matching for switch (JEP 406)**: PREVIEW feature in Java 17 - Requires `--enable-preview` flag
 - **var**: Don't overuse - clarity over brevity
 - **Text Blocks**: Ensure no unintended whitespace changes
 
@@ -838,15 +842,15 @@ cd migrated_code/lifting_java17
 ## 📚 REFERENCE
 
 Java Enhancement Proposals (JEPs) implemented:
-- JEP 409: Sealed Classes (Java 17)
-- JEP 406: Pattern Matching for switch (Preview)
-- JEP 395: Records (Java 16)
-- JEP 394: Pattern Matching for instanceof (Java 16)
-- JEP 378: Text Blocks (Java 15)
-- JEP 361: Switch Expressions (Java 14)
-- JEP 323: Local-Variable Syntax for Lambda (Java 11)
-- JEP 321: HTTP Client (Java 11)
-- JEP 286: Local-Variable Type Inference (Java 10)
+- JEP 409: Sealed Classes (Java 17) - **FINALIZED**
+- JEP 406: Pattern Matching for switch (Java 17) - **PREVIEW** (finalized in Java 21)
+- JEP 395: Records (Java 16) - **FINALIZED**
+- JEP 394: Pattern Matching for instanceof (Java 16) - **FINALIZED**
+- JEP 378: Text Blocks (Java 15) - **FINALIZED**
+- JEP 361: Switch Expressions (Java 14) - **FINALIZED**
+- JEP 323: Local-Variable Syntax for Lambda (Java 11) - **FINALIZED**
+- JEP 321: HTTP Client (Java 11) - **FINALIZED**
+- JEP 286: Local-Variable Type Inference (Java 10) - **FINALIZED**
 - And many more from Java 9-17
 
 ---
